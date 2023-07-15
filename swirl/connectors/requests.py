@@ -142,8 +142,6 @@ class Requests(Connector):
 
         for page in range(0, pages):
 
-            self.warning(f"Page: {page}")
-
             if 'PAGE' in self.query_mappings:
                 page_query = self.query_to_provider[:self.query_to_provider.rfind('&')]
                 page_spec = None
@@ -276,7 +274,6 @@ class Requests(Connector):
 
             if 'RESULTS' in mapped_response:
                 if not mapped_response['RESULTS']:
-                    self.warning("1")
                     mapped_response['RESULTS'] = json_data
                 if not type(mapped_response['RESULTS']) == list:
                     # nlresearch single result
@@ -293,7 +290,6 @@ class Requests(Connector):
                 if type(json_data) == list:
                     if len(json_data) > 0:
                         if type(json_data[0]) == dict:
-                            self.warning("2")
                             mapped_response['RESULTS'] = json_data
                 else:
                     self.error(f'{self}: RESULTS missing from mapped_response')
@@ -363,8 +359,6 @@ class Requests(Connector):
             time.sleep(1)
 
         # end for
-
-        self.warning(f"Response len = {len(mapped_responses)}")
 
         self.found = found
         self.retrieved = retrieved
