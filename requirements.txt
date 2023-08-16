@@ -11,7 +11,7 @@ pyyaml
 whitenoise
 daphne
 textblob
-spacy
+spacy==3.5
 natsort
 django-environ
 statistics
@@ -24,3 +24,4 @@ msal
 PyJWT
 pyahocorasick
 redis
+Redis
