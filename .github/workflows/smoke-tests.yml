@@ -34,13 +34,13 @@ jobs:
     - name: Start up SWIRL
       run: python swirl.py start
     - name: Run Smoke Tests
-      run: |
-           curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
-           curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
-           curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
-           curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
-           curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
-      # run: docker run --net=host -t swirlai/swirl-search:test-smoke sh -c "behave **/docker_container/results.feature --tags=docker_api_smoke --no-capture"
+      # run: |
+      #      curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
+      #      curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
+      #      curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
+      #      curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
+      #      curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
+      run: docker run --net=host -t swirlai/swirl-search:test-smoke sh -c "behave **/docker_container/results.feature --tags=docker_api_smoke --no-capture"
     - name: memtest
       run: free
     - name: Upload log files
