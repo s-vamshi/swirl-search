@@ -20,7 +20,7 @@ jobs:
             python-version: '3.11'
             cache: 'pip' # caching pip stuff
     - name: Run Install Curl
-      run: apt install -y curl
+      run: sudo apt install -y curl
     - name: Run Install Swirl
       run: ./install.sh
     - name: Update apt
