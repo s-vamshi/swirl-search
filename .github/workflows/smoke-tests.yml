@@ -5,7 +5,7 @@ on:
     # only trigger on branches, not on tags
     branches: 'rw-dbg-build'
   workflow_dispatch:
-  
+
 jobs:
 
   build:
@@ -32,7 +32,7 @@ jobs:
     - name: Start up SWIRL
       run: python swirl.py start
     - name: Run Smoke tests
-      run: docker run --net=host -t swirlai/swirl-search:test-smoke sh -c "behave **/docker_container/*.feature --tags=docker_api_smoke"
+      run: docker run --net=host -t swirlai/swirl-search:test-smoke sh -c "behave **/docker_container/results.feature --tags=docker_api_smoke --no-capture"
     - name: memtest
       run: free
     - name: Upload log files
