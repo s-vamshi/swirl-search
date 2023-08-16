@@ -33,11 +33,15 @@ jobs:
       run: sudo killall redis-server
     - name: Start up SWIRL
       run: python swirl.py start
-    - name: Run Smoke tests
+    - name: Run Smoke test 1
       run: curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
+    - name: Run Smoke test 2      
       run: curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
+    - name: Run Smoke test 3      
       run: curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
+    - name: Run Smoke test 4      
       run: curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
+    - name: Run Smoke test 5      
       run: curl -u admin:password --location --request GET 'http://localhost:8000/swirl/search?q=knowledge+management' --header 'Content-Type: application/json'
       # run: docker run --net=host -t swirlai/swirl-search:test-smoke sh -c "behave **/docker_container/results.feature --tags=docker_api_smoke --no-capture"
     - name: memtest
